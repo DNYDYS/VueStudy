@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for = "item in movies">
+      {{item}}
+    </li>
+  </ul>
+</div>
+<div id="app1">
+  <ul>
+    <li v-for = "item in movies">
+      {{item}}
+    </li>
+  </ul>
+</div>
+
+
+<div id = 'app2'>
+    <h2>计数器：{{counter}}</h2>
+    <button v-on:click="add">+</button>
+    <button v-on:click="sub">-</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    //const(变量) let(变量)
+    //vue-01数据绑定
+    const app = new Vue(
+        {
+            el: '#app', //用于要挂载的元素
+            data: { //定义数据
+                message:"影视明星"
+            }
+        })
+
+    //vue-02 数组绑定传值
+    const app1 = new Vue(
+        {
+            el: '#app1', //用于要挂载的元素
+            data: { //定义数据
+                message:"影视明星",
+                movies: ['周星星','张国荣','周润发']
+            }
+        })
+    // vue-03 计数器
+    const app2 = new Vue({
+        el: '#app2',
+        data: {
+            counter: 0
+        },
+        methods:{
+            add:function (){
+                console.log("add")
+                this.counter++
+            },
+            sub:function (){
+                console.log("sub")
+                this.counter--
+            }
+        }
+    })
+</script>
+</body>
+</html>
